@@ -1,3 +1,0 @@
-/home/asmel/developer/programming-part-2/programming-part-2/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-/home/asmel/developer/programming-part-2/programming-part-2/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-/home/asmel/developer/programming-part-2/programming-part-2/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir
