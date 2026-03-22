@@ -1,0 +1,5 @@
+if(EXISTS "/home/asmel/developer/programming-part-2/programming-part-2/build/tests/calculator_tests[1]_tests.cmake")
+  include("/home/asmel/developer/programming-part-2/programming-part-2/build/tests/calculator_tests[1]_tests.cmake")
+else()
+  add_test(calculator_tests_NOT_BUILT calculator_tests_NOT_BUILT)
+endif()
