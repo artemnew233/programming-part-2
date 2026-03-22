@@ -1,0 +1,26 @@
+@startuml
+class Student {
+    - m_id : int
+    - m_course : int
+    - m_averageGrade : double
+    - m_scholarship : bool
+    - m_absences : int
+
+    + Student(id : int, course : int, averageGrade : double, scholarship : bool, absences : int)
+    + getId() const : int
+    + getCourse() const : int
+    + getAverageGrade() const : double
+    + getScholarship() const : bool
+    + getAbsences() const : int
+    + setId(value : int) : void
+    + setCourse(value : int) : void
+    + setAverageGrade(value : double) : void
+    + setScholarship(value : bool) : void
+    + setAbsences(value : int) : void
+    + promoteToNextCourse() : void
+    + updateAverageGrade(value : double) : void
+    + isExcellentStudent() const : bool
+    + canReceiveScholarship() const : bool
+    + addAbsence() : void
+}
+@enduml
