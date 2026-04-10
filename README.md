@@ -1,4 +1,4 @@
-# Lab 03 — Student Class (Variant 1)
+# Lab 03 — MovieTicket Class (Variant 12)
 
 ## Build & Run
 ```bash
@@ -12,10 +12,10 @@ cmake --build build
 lab03/
 ├── CMakeLists.txt
 ├── include/
-│   └── Student.hpp
+│   └── MovieTicket.hpp
 ├── src/
-│   ├── Student.cpp
+│   ├── MovieTicket.cpp
 │   └── main.cpp
 └── uml/
-    └── Student.puml
+    └── MovieTicket.puml
 ```
