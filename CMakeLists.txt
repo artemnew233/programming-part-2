@@ -11,15 +11,20 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_library(student src/Student.cpp)
-target_include_directories(student PUBLIC include)
-target_compile_features(student PUBLIC cxx_std_20)
+add_library(movieticket src/MovieTicket.cpp)
+target_include_directories(movieticket PUBLIC include)
+target_compile_features(movieticket PUBLIC cxx_std_20)
+if(MSVC)
+    target_compile_options(movieticket PRIVATE /W4)
+else()
+    target_compile_options(movieticket PRIVATE -Wall -Wextra -Wpedantic)
+endif()
 
 add_executable(lab04_app src/main.cpp)
-target_link_libraries(lab04_app PRIVATE student)
+target_link_libraries(lab04_app PRIVATE movieticket)
 
-add_executable(lab04_tests tests/test_student.cpp)
-target_link_libraries(lab04_tests PRIVATE student GTest::gtest_main)
+add_executable(lab04_tests tests/test_movieticket.cpp)
+target_link_libraries(lab04_tests PRIVATE movieticket GTest::gtest_main)
 
 include(GoogleTest)
 gtest_discover_tests(lab04_tests)

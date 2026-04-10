@@ -1,31 +1,33 @@
 #include <iostream>
-#include "Student.hpp"
+#include "MovieTicket.hpp"
 
 int main() {
-    Student s(1, 2, 85.0, true, 2);
+    MovieTicket ticket(2, 14, 12.50, false, 148);
 
-    std::cout << "=== Student Info ===\n";
-    std::cout << "ID:            " << s.getId() << "\n";
-    std::cout << "Course:        " << s.getCourse() << "\n";
-    std::cout << "Average grade: " << s.getAverageGrade() << "\n";
-    std::cout << "Scholarship:   " << (s.getScholarship() ? "yes" : "no") << "\n";
-    std::cout << "Absences:      " << s.getAbsences() << "\n";
+    std::cout << "=== MovieTicket Info ===\n";
+    std::cout << "Hall:     " << ticket.getHallNumber() << "\n";
+    std::cout << "Seat:     " << ticket.getSeatNumber() << "\n";
+    std::cout << "Price:    " << ticket.getPrice() << "\n";
+    std::cout << "Booked:   " << (ticket.getBooked() ? "yes" : "no") << "\n";
+    std::cout << "Duration: " << ticket.getDurationMinutes() << " min\n";
 
     std::cout << "\n=== Methods ===\n";
-    std::cout << "Excellent student: " << (s.isExcellentStudent() ? "yes" : "no") << "\n";
-    std::cout << "Can receive scholarship: " << (s.canReceiveScholarship() ? "yes" : "no") << "\n";
+    std::cout << "Is premium:  " << (ticket.isPremium() ? "yes" : "no") << "\n";
+    std::cout << "Is long:     " << (ticket.isLongMovie() ? "yes" : "no") << "\n";
+    std::cout << "Price -20%:  " << ticket.discountedPrice(20.0) << "\n";
 
-    s.addAbsence();
-    s.addAbsence();
-    s.addAbsence();
-    std::cout << "After 3 absences: " << s.getAbsences() << "\n";
+    ticket.book();
+    std::cout << "\nAfter book(): booked = " << (ticket.getBooked() ? "yes" : "no") << "\n";
 
-    s.updateAverageGrade(92.5);
-    std::cout << "After grade update: " << s.getAverageGrade() << "\n";
-    std::cout << "Excellent now: " << (s.isExcellentStudent() ? "yes" : "no") << "\n";
+    ticket.cancelBooking();
+    std::cout << "After cancelBooking(): booked = " << (ticket.getBooked() ? "yes" : "no") << "\n";
 
-    s.promoteToNextCourse();
-    std::cout << "After promotion, course: " << s.getCourse() << "\n";
+    // move to premium hall and check again
+    ticket.setHallNumber(5);
+    ticket.setPrice(18.0);
+    std::cout << "\nAfter hall=5, price=18.0:\n";
+    std::cout << "Is premium: " << (ticket.isPremium() ? "yes" : "no") << "\n";
+    std::cout << "Price -10%: " << ticket.discountedPrice(10.0) << "\n";
 
     return 0;
 }
