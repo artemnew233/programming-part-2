@@ -1,12 +1,33 @@
 #include <fmt/core.h>
-#include "calculator.hpp"
+#include <vector>
+#include <string>
+#include "schedule.hpp"
 
 int main() {
-    fmt::print("Console Calculator\n");
-    fmt::print("------------------\n");
-    fmt::print("10 + 3 = {}\n", add(10, 3));
-    fmt::print("10 - 3 = {}\n", sub(10, 3));
-    fmt::print("10 * 3 = {}\n", mul(10, 3));
-    fmt::print("10 / 3 = {:.4f}\n", divide(10, 3));
+    std::vector<std::string> monday;
+
+    addClass(monday, "Math");
+    addClass(monday, "Physics");
+    addClass(monday, "C++ Programming");
+    addClass(monday, "English");
+    addClass(monday, "History");
+
+    fmt::print("Class Schedule — Monday\n");
+    fmt::print("-----------------------\n");
+    fmt::print("Total periods: {}\n\n", countPeriods(monday));
+
+    for (int i = 0; i < countPeriods(monday); ++i)
+        fmt::print("Period {}: {}\n", i + 1, getClassAt(monday, i));
+
+    fmt::print("\nHas 'Physics': {}\n", hasClass(monday, "Physics") ? "yes" : "no");
+    fmt::print("Has 'Biology': {}\n",  hasClass(monday, "Biology")  ? "yes" : "no");
+
+    removeClass(monday, "History");
+    fmt::print("\nAfter removing 'History':\n");
+    fmt::print("Total periods: {}\n", countPeriods(monday));
+
+    for (int i = 0; i < countPeriods(monday); ++i)
+        fmt::print("Period {}: {}\n", i + 1, getClassAt(monday, i));
+
     return 0;
 }

@@ -1,6 +1,0 @@
-CalculatorTest.AddWorks 1 0.00138642
-CalculatorTest.SubWorks 1 0.00103508
-CalculatorTest.MulWorks 1 0.00107983
-CalculatorTest.DivWorks 1 0.001075
-CalculatorTest.DivByZeroThrows 1 0.0014187
----

@@ -1,8 +1,8 @@
-add_executable(calculator_tests test_calculator.cpp)
+add_executable(schedule_tests test_schedule.cpp)
 
-target_link_libraries(calculator_tests PRIVATE calculator GTest::gtest_main)
+target_link_libraries(schedule_tests PRIVATE schedule GTest::gtest_main)
 
-target_compile_features(calculator_tests PRIVATE cxx_std_20)
+target_compile_features(schedule_tests PRIVATE cxx_std_20)
 
 include(GoogleTest)
-gtest_discover_tests(calculator_tests)
+gtest_discover_tests(schedule_tests)
