@@ -22,7 +22,7 @@ int main() {
     ticket.cancelBooking();
     std::cout << "After cancelBooking(): booked = " << (ticket.getBooked() ? "yes" : "no") << "\n";
 
-    // move to premium hall and check again
+    
     ticket.setHallNumber(5);
     ticket.setPrice(18.0);
     std::cout << "\nAfter hall=5, price=18.0:\n";

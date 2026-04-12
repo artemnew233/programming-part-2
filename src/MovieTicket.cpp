@@ -27,7 +27,7 @@ void MovieTicket::cancelBooking() {
     m_booked = false;
 }
 
-// Premium: hall number >= 3 and price >= 15.0
+
 bool MovieTicket::isPremium() const {
     return m_hallNumber >= 3 && m_price >= 15.0;
 }
@@ -38,7 +38,6 @@ double MovieTicket::discountedPrice(double percent) const {
     return m_price * (1.0 - percent / 100.0);
 }
 
-// Long movie: duration > 120 minutes
 bool MovieTicket::isLongMovie() const {
     return m_durationMinutes > 120;
 }

@@ -1,0 +1,3 @@
+/home/asmel/developer/programming-part-2/programming-part-2/build/CMakeFiles/lab03.dir
+/home/asmel/developer/programming-part-2/programming-part-2/build/CMakeFiles/edit_cache.dir
+/home/asmel/developer/programming-part-2/programming-part-2/build/CMakeFiles/rebuild_cache.dir

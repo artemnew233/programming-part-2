@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/lab03.dir/src/main.cpp.o CMakeFiles/lab03.dir/src/MovieTicket.cpp.o -o lab03 
