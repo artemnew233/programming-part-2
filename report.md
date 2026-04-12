@@ -49,7 +49,7 @@ CMake is a build system generator that:
 
 ```bash
 cmake -S . -B build    # configure (out-of-source)
-cmake --build build    # build
+cmake --build build    # build ig
 ```
 
 ### Tools Used
