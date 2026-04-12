@@ -135,7 +135,6 @@ TEST(MovieTicketMethodTest, IsLongMovieFalseAt120) {
 // ── Boundary cases ───────────────────────────────────────────────────────────
 
 TEST(MovieTicketBoundaryTest, ExactPremiumHallAndPrice) {
-    // hall == 3 and price == 15.0 is exactly the premium threshold
     MovieTicket t(3, 1, 15.0, false, 90);
     EXPECT_TRUE(t.isPremium());
 }

@@ -15,8 +15,6 @@ class MovieTicket {
     + setHallNumber(value : int) : void
     + setSeatNumber(value : int) : void
     + setPrice(value : double) : void
-    + setBooked(value : bool) : void
-    + setDurationMinutes(value : int) : void
     + book() : void
     + cancelBooking() : void
     + isPremium() const : bool
