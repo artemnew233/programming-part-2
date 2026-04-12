@@ -98,7 +98,7 @@ lab01_v12/
     ├── CMakeLists.txt      ← builds the test executable, links schedule + GTest
     └── test_schedule.cpp
 ```
-
+![alt text](image.png)
 ---
 
 ## 4. Implementation
@@ -357,17 +357,15 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ```
 
-<!-- Insert screenshots here:
-1. Project directory structure
-2. Root CMakeLists.txt open in editor/terminal
-3. cmake -S . -B build configuration output
-4. cmake --build build output
-5. ./build/app program run
-6. ctest output — all 9 tests passed
-7. vcpkg install or vcpkg.json in editor
-8. GitHub repository page (lab01 branch)
--->
+![alt text](image-1.png)
+![alt text](image-2.png)
 
+here we can see build directory added --> ![alt text](image-3.png)
+![alt text](image-4.png) --> running the app executable
+ctest --> ![alt text](image-5.png)
+and here we can see lab01 branch in github -->  ![alt text](image-6.png)
+
+and here we can see lab01 changes being pushed to git --> ![alt text](image-7.png)
 ---
 
 ## 6. Conclusions
@@ -384,8 +382,3 @@ In this laboratory work the following was completed:
 
 ---
 
-## 7. GitHub Repository
-
-Repository: `https://github.com/Bezrukiy/programming-part-2`  
-Branch: `lab01`  
-Pull request: <!-- link -->
