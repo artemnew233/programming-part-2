@@ -1,0 +1,24 @@
+@startuml
+class MovieTicket {
+    - m_hallNumber : int
+    - m_seatNumber : int
+    - m_price : double
+    - m_booked : bool
+    - m_durationMinutes : int
+
+    + MovieTicket(hallNumber : int, seatNumber : int, price : double, booked : bool, durationMinutes : int)
+    + getHallNumber() const : int
+    + getSeatNumber() const : int
+    + getPrice() const : double
+    + getBooked() const : bool
+    + getDurationMinutes() const : int
+    + setHallNumber(value : int) : void
+    + setSeatNumber(value : int) : void
+    + setPrice(value : double) : void
+    + book() : void
+    + cancelBooking() : void
+    + isPremium() const : bool
+    + discountedPrice(percent : double) const : double
+    + isLongMovie() const : bool
+}
+@enduml
