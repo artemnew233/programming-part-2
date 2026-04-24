@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.20)
+project(lab03 LANGUAGES CXX)
+
+add_executable(lab03 src/main.cpp src/MovieTicket.cpp)
+target_include_directories(lab03 PRIVATE include)
+target_compile_features(lab03 PRIVATE cxx_std_20)
+if(MSVC)
+    target_compile_options(lab03 PRIVATE /W4)
+else()
+    target_compile_options(lab03 PRIVATE -Wall -Wextra -Wpedantic)
+endif()
