@@ -1,0 +1,101 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class City {
+    - name : const char*
+    - population : int
+    - districts : District*[5]
+    - hospitals : Hospital*[5]
+    - schools : School*[5]
+    - districtCount : int
+    - hospitalCount : int
+    - schoolCount : int
+    + City(name : const char*, population : int)
+    + getName() const : const char*
+    + getPopulation() const : int
+    + addDistrict(d : District&) : bool
+    + addHospital(h : Hospital&) : bool
+    + addSchool(s : School&) : bool
+    + hasDistrict(id : int) const : bool
+    + hasHospital(id : int) const : bool
+    + hasSchool(id : int) const : bool
+    + getDistrictAt(i : int) const : const District*
+    + getHospitalAt(i : int) const : const Hospital*
+    + getSchoolAt(i : int) const : const School*
+    + totalPublicHospitals() const : int
+}
+
+class District {
+    - id : int
+    - name : const char*
+    - areaSqKm : double
+    - citizens : Citizen*[10]
+    - citizenCount : int
+    + District(id : int, name : const char*, areaSqKm : double)
+    + getId() const : int
+    + getName() const : const char*
+    + getCitizenCount() const : int
+    + addCitizen(c : Citizen&) : bool
+    + removeCitizenById(id : int) : bool
+    + containsCitizen(id : int) const : bool
+    + populationDensity() const : double
+}
+
+class Citizen {
+    - id : int
+    - fullName : const char*
+    - age : int
+    - districtId : int
+    + Citizen(id : int, fullName : const char*, age : int, districtId : int)
+    + getId() const : int
+    + getFullName() const : const char*
+    + getAge() const : int
+    + getDistrictId() const : int
+    + setDistrictId(id : int) : void
+    + isAdult() const : bool
+}
+
+class Hospital {
+    - id : int
+    - name : const char*
+    - capacity : int
+    - isPublic : bool
+    + Hospital(id : int, name : const char*, capacity : int, isPublic : bool)
+    + getId() const : int
+    + getName() const : const char*
+    + getCapacity() const : int
+    + getIsPublic() const : bool
+    + isLargeHospital() const : bool
+}
+
+class School {
+    - id : int
+    - name : const char*
+    - capacity : int
+    - level : const char*
+    + School(id : int, name : const char*, capacity : int, level : const char*)
+    + getId() const : int
+    + getName() const : const char*
+    + getCapacity() const : int
+    + getLevel() const : const char*
+    + isPrimary() const : bool
+}
+
+City "1" o-- "0..5" District   : aggregates
+City "1" o-- "0..5" Hospital   : aggregates
+City "1" o-- "0..5" School     : aggregates
+District "1" o-- "0..10" Citizen : aggregates
+
+note right of City
+  City stores pointers to
+  Districts, Hospitals, Schools.
+  It does NOT own their lifetime.
+end note
+
+note bottom of Citizen
+  Citizens can be moved between
+  Districts or exist without one.
+  Aggregation, not composition.
+end note
+
+@enduml
