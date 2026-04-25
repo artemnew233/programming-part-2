@@ -33,7 +33,7 @@ int main() {
     td.incrementRevision();
     std::cout << "After revision bump: " << td.summary() << "\n";
 
-    // Polymorphic usage via base pointer
+    // Polymorphic thing
     std::cout << "\n--- Polymorphic call via Document* ---\n";
     Document* docs[] = { &doc, &od, &c, &td };
     for (Document* d : docs) {
