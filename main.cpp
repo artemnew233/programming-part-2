@@ -6,7 +6,6 @@ int main() {
     std::cout << "Variant 1: Car Assembly" << std::endl;
     std::cout << "---------------------------------" << std::endl;
 
-    // Create a car (Composition - Car owns its parts)
     Car myCar("Tesla Model S", 670, "Electric", 21, "Performance", 5, "Leather", 1, "Direct Drive");
 
     std::cout << "Car Model: " << myCar.getModel() << std::endl;

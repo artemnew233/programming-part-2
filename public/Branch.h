@@ -18,6 +18,6 @@ public:
 private:
     double lengthCm_;
     int order_;
-    std::vector<Leaf> leaves_;   // composition: leaves belong to this branch
-    std::vector<Fruit> fruits_;  // composition: fruits belong to this branch
+    std::vector<Leaf> leaves_;
+    std::vector<Fruit> fruits_;
 };

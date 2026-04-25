@@ -4,8 +4,7 @@
 #include <vector>
 #include <string>
 
-// Tree is the composite whole. Root and Branch (which contain Leaf and Fruit)
-// are integral composition parts — they cannot exist without the Tree context.
+
 class Tree {
 public:
     Tree(std::string species, double heightM, Root root);
@@ -21,6 +20,6 @@ public:
 private:
     std::string species_;
     double heightM_;
-    Root root_;                    // composition: one root, lifetime bound to Tree
-    std::vector<Branch> branches_; // composition: branches are integral parts
+    Root root_;                    
+    std::vector<Branch> branches_;
 };
