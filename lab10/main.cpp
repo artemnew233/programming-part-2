@@ -20,7 +20,7 @@ int main() {
 
     // boundary values
     std::cout << "boundary [5] in [5,5]: "
-              << countSegmentsInRange(segments_i, 5, 5, 5) << "\n"; // 1
+              << countSegmentsInRange(segments_i, 5, 5, 5) << "\n"; // 1 
 
     // no match
     std::cout << "no match [2,5,8,11,14] in [20,30]: "
