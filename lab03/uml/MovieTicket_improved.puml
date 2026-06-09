@@ -1,10 +1,10 @@
-@startuml MovieTicket
+@startuml MovieTicket_improved
 
 skinparam classAttributeIconSize 0
 skinparam class {
     BackgroundColor White
-    BorderColor #2C6E9E
-    HeaderBackgroundColor #2C6E9E
+    BorderColor #27744C
+    HeaderBackgroundColor #27744C
     HeaderFontColor White
     FontSize 12
     AttributeFontSize 11
@@ -25,22 +25,21 @@ class MovieTicket {
   + getBooked()          const : bool
   + getDurationMinutes() const : int
 
-  + setHallNumber(value : int)      : void
-  + setSeatNumber(value : int)      : void
-  + setPrice(value : double)        : void
-  + setBooked(value : bool)         : void
-  + setDurationMinutes(value : int) : void
+  + setPrice(value : double) : void
 
-  + book()                              : void
-  + cancelBooking()                     : void
-  + isPremium()         const           : bool
+  + book()                                  : void
+  + cancelBooking()                         : void
+  + isPremium()              const          : bool
   + discountedPrice(percent : double) const : double
-  + isLongMovie()       const           : bool
+  + isLongMovie()            const          : bool
 }
 
 note right of MovieTicket
-  isPremium()  : price > 200.0
-  isLongMovie(): durationMinutes > 120
+  Removed setters:
+  - setHallNumber()     (identity field)
+  - setSeatNumber()     (identity field)
+  - setBooked()         (bypasses book/cancelBooking logic)
+  - setDurationMinutes()(immutable after creation)
 end note
 
 @enduml
