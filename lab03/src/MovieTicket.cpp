@@ -1,9 +1,5 @@
 #include "MovieTicket.hpp"
 
-// ---------------------------------------------------------------
-// Constructor
-// ---------------------------------------------------------------
-
 MovieTicket::MovieTicket(int hallNumber, int seatNumber, double price,
                          bool booked, int durationMinutes)
     : m_hallNumber(hallNumber >= 1 ? hallNumber : 1),
@@ -12,10 +8,6 @@ MovieTicket::MovieTicket(int hallNumber, int seatNumber, double price,
       m_booked(booked),
       m_durationMinutes(durationMinutes > 0 ? durationMinutes : 1)
 {}
-
-// ---------------------------------------------------------------
-// Getters
-// ---------------------------------------------------------------
 
 int MovieTicket::getHallNumber() const {
     return m_hallNumber;
@@ -36,10 +28,6 @@ bool MovieTicket::getBooked() const {
 int MovieTicket::getDurationMinutes() const {
     return m_durationMinutes;
 }
-
-// ---------------------------------------------------------------
-// Setters
-// ---------------------------------------------------------------
 
 void MovieTicket::setHallNumber(int value) {
     if (value >= 1) {
@@ -69,10 +57,6 @@ void MovieTicket::setDurationMinutes(int value) {
     }
 }
 
-// ---------------------------------------------------------------
-// Main methods
-// ---------------------------------------------------------------
-
 void MovieTicket::book() {
     if (!m_booked) {
         m_booked = true;
@@ -86,7 +70,6 @@ void MovieTicket::cancelBooking() {
 }
 
 bool MovieTicket::isPremium() const {
-    // A ticket is considered premium when the price exceeds 200.0
     return m_price > 200.0;
 }
 
@@ -97,6 +80,5 @@ double MovieTicket::discountedPrice(double percent) const {
 }
 
 bool MovieTicket::isLongMovie() const {
-    // A movie is "long" if it runs for more than 120 minutes (> 2 hours)
     return m_durationMinutes > 120;
 }
