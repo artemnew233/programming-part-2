@@ -1,0 +1,50 @@
+name: C++ Quality Pipeline (optimized)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install all tools once
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            cmake ninja-build clang clang-format clang-tidy doxygen graphviz g++
+
+      - name: Stage 1 — Format check
+        run: |
+          find include src tests \
+            -type f \
+            \( -name '*.hpp' -o -name '*.h' -o -name '*.cpp' \) \
+            -print0 | xargs -0 -r clang-format --dry-run --Werror
+
+      - name: Stage 2 — Configure, build, test
+        run: |
+          cmake -S . -B build -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+          cmake --build build
+          ctest --test-dir build --output-on-failure
+
+      - name: Stage 3 — Static analysis
+        run: |
+          find src tests \
+            -type f -name '*.cpp' \
+            -print0 | xargs -0 -r clang-tidy -p build
+
+      - name: Stage 4 — Sanitizers
+        run: |
+          cmake -S . -B build-asan -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_CXX_COMPILER=clang++ \
+            -DENABLE_SANITIZERS=ON
+          cmake --build build-asan
+          ctest --test-dir build-asan --output-on-failure
+
+      - name: Stage 5 — Documentation
+        run: doxygen Doxyfile
